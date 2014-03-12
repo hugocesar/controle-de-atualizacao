@@ -1,0 +1,101 @@
+/*Theme Name: abela swi online
+Theme URI: http://site-teste.swionline.com.br/atualizacao
+Description: Sistema de tabela interno
+Author: Hugo CÃ©sar
+Author URI: http://hugocesar.com.br
+Version: 1.0
+*/
+li{
+	list-style: none;
+}
+header h1{
+	margin: 0 auto;
+	display: block;
+	width: 114px;
+	height: 92px
+}
+header{
+	padding-bottom: 1%;
+	background: #F5F5F5;
+	border-bottom: 1px solid #e5e5e5;
+}
+.nav-tabs li a{
+	color:#979797;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #FFFFFF;
+    border-color: #40C2CF;
+    border-image: none;
+    border-style: solid;
+    border-width: 0;
+    color: #428BCA;
+    cursor: default;
+}
+ul#myTabContent li{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #40C2CF;
+    border-style: solid;
+    border-width: 1px;
+    color: none;
+    cursor: default;
+    border-radius: 4px 4px 0 0;	
+}
+.nav-tabs > li {
+    margin-bottom: 0px;
+}
+.tab-pane{
+	border-left: 1px solid #DDD;
+	border-right: 1px solid #DDD;
+	border-bottom: 1px solid #DDD;
+}
+
+form{
+    padding: 1%;
+}
+#data{
+	width:80%;
+}
+legend {
+    border: none;
+    margin-bottom: 0px;
+    font-size: 120%;
+}
+
+p.pp{
+    float: left;
+    width: 45%;
+    display: none;
+}
+.modulo{
+    width: 50%;
+}
+
+
+.area_central{
+    padding: 1%;
+}
+
+
+
+
+
+
+#footer{
+	border-top: 1px solid #e5e5e5;
+}
+
+address{
+	padding-top: 3%;
+}
+
+address p{
+	line-height: 110%;
+	font-size: 12px;
+}

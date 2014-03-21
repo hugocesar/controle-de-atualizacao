@@ -92,13 +92,11 @@
 			<legend>Período</legend>  
 			<div class="form-group data1">
 			    <!-- <label class="sr-only" for="exampleInputEmail2">Período</label> -->
-			    <input type="text" class="form-control" name ="data1" id="data" 
-			    	value="18/01/2014" placeholder="12/02/2014">
+			    <input type="text" class="form-control" name ="data1" id="data" placeholder="12/02/2014">
 		  	</div>
 		    <p class='inline-block'>a</p>
 			<div class="form-group data2"> 
-				<input type="text" class="form-control" name ="data2" id="data" 
-					value="19/03/2014" placeholder="12/02/2014">
+				<input type="text" class="form-control" name ="data2" id="data" placeholder="12/02/2014">
 		  	</div>
 
 			<div class="form-group">
@@ -141,12 +139,29 @@ $dbname = "cfi_pe2";
 
 $connection = pg_connect("host=$host dbname=$dbname user=$user password=$password") or die ("Não pode se conectar com o servidor\n"); 
 
+//$connection = pg_Connect("host = postgresql01.cfi-pe.com.br dbname= cfi_pe2 user= cfi_pe2 password=postgres") or die ("Não pode se conectar com o servidor\n"); 
+//concexao com o banco web
 //$query = "SELECT * FROM versoes where ddata >= '" . $_POST["data1"] . "' and ddata <= '" .  $_POST["data2"] . "' and upper(cprograma) = '" . $_POST["modulo"] . "'" ; 
 /*Vai na tabela para buscar os valores do ddta no banco. Onde se ddra for maior ou igual a data1 e menor ou igual a data2*/
-$query = "SELECT * FROM versoes where ddata >= '" . $_POST["data1"] . "' and ddata <= '" . $_POST["data2"]. "'";
+//$query = "SELECT * FROM versoes where ddata >= '" . $_POST["data1"] . "' and ddata <= '" . $_POST["data2"]. "'";
 
-if ( $_POST["modulo"] == "" ){
-$query = $query . " AND upper(cprograma) = '" . $_POST["modulo"] . " ' " ;
+$data2 = $_POST["data2"];
+$ano = substr($data2, 6);
+$dia = substr($data2, 0, 2);
+$mes = substr($data2, 3, 2);
+$data2 = $ano . '-' . $mes . '-' . $dia;
+
+$data1 = $_POST["data1"];
+$ano = substr($data1, 6);
+$dia = substr($data1, 0, 2);
+$mes = substr($data1, 3, 2);
+$data1 = $ano . '-' . $mes . '-' . $dia;
+
+$query = "SELECT * FROM versoes where ddata >= '" . $data1 . "' and ddata <= '" . $data2. "'";
+
+/*pesquisa no banco versoes todas as ddata maior ou igual a data1 e menor ou igual a data2*/
+if ( $_POST["modulo"] != " " ){
+$query = $query . " AND upper(cprograma) = '" . $_POST["modulo"] . "'" ;
 }
 
 $rs = pg_query($connection, $query) or die("query não pode ser executado: $query\n");
